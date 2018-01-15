@@ -1,0 +1,25 @@
+<!-- This template receive an animesCtrl -->
+<!-- <ul>
+    <li ng-repeat="anime in animesCtrl.animes">
+        <a ui-sref="animes.genre({animeId: anime.anime_id})">Name: {{ anime.name }} Rating: {{ anime.rating }}</a>
+    </li>
+</ul>
+ -->
+<div class="container">
+    <div class="card-group">
+        <div class="card" ng-repeat="anime in animesCtrl.animes">
+            <img class="card-img-top" height="260" ng-src="{{ ('images/'+ anime.anime_id + '.jpg') }}"
+            onerror="this.src='images/21.jpg'" alt="{{anime.name}}">
+            <div class="card-block">
+                <h4 class="card-title">{{anime.name}}</h4>
+                <p class="card-text">{{anime.rating}}</p>
+                <p class="card-text"><small class="text-muted">{{anime.members}} users voted.</small></p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>
