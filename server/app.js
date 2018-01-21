@@ -12,7 +12,7 @@ app.use('/js', express.static(__dirname + '/../node_modules/jquery/dist')); // r
 app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 
-app.get("/animes", (request, response) => {
+app.get("/animes-list", (request, response) => {
     let animes = mongoUtil.animes();
     animes.find().limit(30).toArray((err,docs) => {
         if(err) {
@@ -23,7 +23,7 @@ app.get("/animes", (request, response) => {
     });
 });
 
-app.get("/animes/:id", (request, response) => {
+app.get("/animes-list/:id", (request, response) => {
     let animeId = parseInt(request.params.id);
     // console.log( "Anime id: ", animeId);
     let animes = mongoUtil.animes();

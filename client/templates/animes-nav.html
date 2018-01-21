@@ -1,0 +1,24 @@
+<!-- This template receive an animesCtrl -->
+<!-- <ul>
+    <li ng-repeat="anime in animesCtrl.animes">
+        <a ui-sref="animes.genre({animeId: anime.anime_id})">Name: {{ anime.name }} Rating: {{ anime.rating }}</a>
+    </li>
+</ul>
+ -->
+ <div class="container">
+    <div class="row">
+        <div class="col-md-2" ui-sref="animes.genre({animeId: anime.anime_id})" ng-repeat="anime in animesCtrl.animes | limitTo:10">
+            <div class="row content">
+                <div class="col-md-12 content-image" ng-style="{'background-image':'url(images/'+anime.anime_id+'.jpg), url(images/default.jpg)'}"></div>
+                <div class="col-md-12">
+                    <span class="info">{{anime.name | limitTo: 15 }}{{anime.name.length > 15 ? '...' : ''}}</span>
+                </div>
+                <div class="col-md-12">
+                    <b>{{anime.rating}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <div ui-view></div>

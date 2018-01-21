@@ -1,18 +1,21 @@
 import angular from 'angular'
-import 'angular-ui-router'
+import uiRouter from '@uirouter/angularjs'
 
-angular.module('animeRecommender', ["ui.router"])
+angular.module('animeRecommender', [uiRouter])
 
     .config(($stateProvider, $urlRouterProvider) => {
-      $urlRouterProvider.otherwise('/animes');
-
+      $urlRouterProvider.otherwise('/home');
       $stateProvider
+      .state('home', {
+          url: '/home',
+          templateUrl: 'templates/home.html'
+      })
       .state('animes', {
         url:'/animes',
-        templateUrl: 'animes/animes-nav.html',
+        templateUrl: 'templates/animes-nav.html',
         resolve: {
             animesService: function($http) {
-                return $http.get('/animes');
+                return $http.get('/animes-list');
             }
         },
         controller: function(animesService) {
@@ -22,10 +25,10 @@ angular.module('animeRecommender', ["ui.router"])
       })
       .state('animes.genre', {
         url: '/:animeId',
-        templateUrl: 'animes/animes-genre.html',
+        templateUrl: 'templates/animes-genre.html',
         resolve: {
             animeService: function($http, $stateParams) {
-                return $http.get(`/animes/${$stateParams.animeId}`);
+                return $http.get(`/animes-list/${$stateParams.animeId}`);
             }
         },
         controller: function(animeService) {
