@@ -37,10 +37,15 @@ _angular2.default.module('animeRecommender', [_angularjs2.default]).config(funct
             }
         },
         controller: function controller(animeService) {
-            this.anime = animeService.data;
+            this.anime = animeService.data[0];
+            this.anime.genre = this.anime.genre.split(', ');
         },
         controllerAs: 'genreCtrl'
     });
+}).filter('capitalize', function () {
+    return function (input) {
+        return !!input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    };
 });
 
 },{"@uirouter/angularjs":2,"angular":76}],2:[function(require,module,exports){

@@ -7,18 +7,23 @@
  -->
  <div class="container">
     <div class="row">
-        <div class="col-md-2" ui-sref="animes.genre({animeId: anime.anime_id})" ng-repeat="anime in animesCtrl.animes | limitTo:10">
-            <div class="row content">
+        <div class="col-md-2" ui-sref="animes.genre({animeId: anime.anime_id})" ng-repeat="anime in animesCtrl.animes">
+            <div class="row content" data-toggle="modal" data-target="#exampleModal">
                 <div class="col-md-12 content-image" ng-style="{'background-image':'url(images/'+anime.anime_id+'.jpg), url(images/default.jpg)'}"></div>
-                <div class="col-md-12">
-                    <span class="info">{{anime.name | limitTo: 15 }}{{anime.name.length > 15 ? '...' : ''}}</span>
+                <div class="col-md-12-fluid">
+                    <span class="info"><b>{{anime.name | capitalize | limitTo: 16 }}{{anime.name.length > 12 ? '...' : ''}}</b></span>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12"></div>
                     <b>{{anime.rating}}</b>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
-    <div ui-view></div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div ui-view></div>
+    </div>
+</div>
