@@ -58,6 +58,11 @@ _angular2.default.module('animeRecommender').config(function ($stateProvider, $u
             alert('Email ou Senha inválidos');
         }
     };
+}).directive('loginBtn', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/login-btn.html'
+    };
 });
 
 },{"@uirouter/angularjs":2,"angular":76}],2:[function(require,module,exports){

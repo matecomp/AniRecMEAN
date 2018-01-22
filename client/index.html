@@ -29,34 +29,7 @@
             <button class="btn btn-outline-light my-2 my-sm-0 btn-space" type="submit">Search</button>
             </form>
         </div>
-
-        <div class="btn-group" ng-controller="loginCtrl as login">
-            <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Login
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-                <form class="px-4 py-3">
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input ng-model="login.email" type="email" class="form-control" id="email" placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input ng-model="login.password" type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                        <input ng-model="login.checkbox" type="checkbox" class="form-check-input" id="checkbox">
-                        <label class="form-check-label" for="checkbox">
-                        Remember me
-                        </label>
-                    </div>
-                    <button ng-click="login.submit()" type="submit" class="btn btn-primary">Sign in</button>
-                </form>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">New around here? Sign up</a>
-                  <a class="dropdown-item" href="#">Forgot password?</a>
-            </div>
-        </div>
+        <login-btn></login-btn>
     </nav>
     
     <div ui-view></div>

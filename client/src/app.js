@@ -56,4 +56,10 @@ angular.module('animeRecommender')
                 alert('Email ou Senha inválidos');
             }
         };
+    })
+    .directive('loginBtn', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/login-btn.html'
+        };
     });
