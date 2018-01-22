@@ -11,7 +11,9 @@ var _angularjs2 = _interopRequireDefault(_angularjs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('animeRecommender', [_angularjs2.default]).config(function ($stateProvider, $urlRouterProvider) {
+_angular2.default.module('animeRecommender', [_angularjs2.default]);
+
+_angular2.default.module('animeRecommender').config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider.state('home', {
         url: '/home',
@@ -45,6 +47,16 @@ _angular2.default.module('animeRecommender', [_angularjs2.default]).config(funct
 }).filter('capitalize', function () {
     return function (input) {
         return !!input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    };
+}).controller('loginCtrl', function () {
+    this.submit = function () {
+        var email = this.email;
+        var password = this.password;
+        if (email === 'admin@admin.com' && password === 'admin') {
+            alert('Porra!');
+        } else {
+            alert('Email ou Senha inválidos');
+        }
     };
 });
 
