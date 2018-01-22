@@ -17,7 +17,7 @@ angular.module('animeRecommender')
         templateUrl: 'templates/animes-nav.html',
         resolve: {
             animesService: function($http) {
-                return $http.get('/animes-list');
+                return $http.get('api/animes-list');
             }
         },
         controller: function(animesService) {
@@ -30,7 +30,7 @@ angular.module('animeRecommender')
         templateUrl: 'templates/animes-genre.html',
         resolve: {
             animeService: function($http, $stateParams) {
-                return $http.get(`/animes-list/${$stateParams.animeId}`);
+                return $http.get(`api/animes-list/${$stateParams.animeId}`);
             }
         },
         controller: function(animeService) {
@@ -47,7 +47,7 @@ angular.module('animeRecommender')
             }
     })
     .controller('loginCtrl', function() {
-        this.submit = function() {
+        this.login = function() {
             let email = this.email;
             let password = this.password;
             if(email === 'admin@admin.com' && password === 'admin'){
